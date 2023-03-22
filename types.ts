@@ -25,6 +25,11 @@ export type Base = {
 export type RolesUsuario = Partial<Record<Roles, boolean>>;
 export type SistemasUsuario = Partial<Record<Sistemas, boolean>>;
 
+export type InfoArchivo = {
+  name: string;
+  contentType: string;
+};
+
 export type Direccion = {
   idUsuario?: string;
   pais: Paises;
@@ -54,7 +59,7 @@ export type Usuario = {
   nif?: string; // Numero Identificacion Fiscal: Cedula, DNI, RIF, NIT, ITIN, SSN, EIN etc.
   email: string;
   telefono?: string;
-  archivos?: string[];
+  archivos?: InfoArchivo[];
   lider?: boolean;
   roles: RolesUsuario;
   sistemas: SistemasUsuario;
@@ -73,11 +78,6 @@ export type DatosUsuario = Pick<
 >;
 
 export type DatosResponsable = Omit<DatosUsuario, "empresa" | "nif">;
-
-export type InfoArchivo = {
-  name: string;
-  contentType: string;
-};
 
 export type ItemOrden = {
   idItem: string;
