@@ -1,91 +1,99 @@
-import { Countries, Roles, Status, Systems } from "./enums";
+import {
+  Paises,
+  Roles,
+  EstatusPlanificacion,
+  Sistemas,
+  NivelResultado,
+} from "./enums";
 
-export type UserRoles = Partial<Record<Roles, boolean>>;
-export type UserSystems = Partial<Record<Systems, boolean>>;
-
-export type Address = {
-  id?: string;
-  userId?: string;
-  street: string;
-  unit: string;
-  city: string;
-  state: string;
-  zipCode: string;
+export type ResultadoCallable = {
+  nivel: NivelResultado;
+  mensaje: string;
+  data?: any;
 };
 
-export type UserData = {
+export type Base = {
   id?: string;
+  activo?: boolean;
+  eliminado?: boolean;
+  fechaCreado: Date;
+  fechaActualizado?: Date;
+  fechaEliminado?: Date;
+};
+
+export type RolesUsuario = Partial<Record<Roles, boolean>>;
+export type SistemasUsuario = Partial<Record<Sistemas, boolean>>;
+
+export type Direccion = {
+  idUsuario?: string;
+  calle: string;
+  unidad: string;
+  ciudad: string;
+  estado: string;
+  codigoPostal: string;
+} & Base;
+
+export type DataUsuario = {
   email: string;
-  firstName: string;
-  lastName: string;
-  company?: string;
+  nombre: string;
+  apellido: string;
+  empresa?: string;
   displayName?: string;
-  phone?: string;
-  taxId?: string;
-  country: Countries;
-  address?: Partial<Address>;
-  isLeader?: boolean;
-  roles: UserRoles;
-  systems: UserSystems;
-  files?: string[];
-};
+  telefono?: string;
+  idImpuesto?: string;
+  pais: Paises;
+  direccion?: Partial<Direccion>;
+  lider?: boolean;
+  roles: RolesUsuario;
+  sistemas: SistemasUsuario;
+  archivos?: string[];
+} & Base;
 
-export type CustomerData = Omit<
-  UserData,
-  "displayName" | "isLeader" | "roles" | "systems" | "files"
+export type DataCliente = Omit<
+  DataUsuario,
+  "displayName" | "lider" | "roles" | "sistemas" | "archivos"
 >;
 
-export type SellerData = Omit<CustomerData, "taxId">;
+export type DataVendedor = Omit<DataCliente, "taxId">;
 
-export type FileInfo = {
+export type InfoArchivo = {
   name: string;
   contentType: string;
 };
 
-export type ResponsibleData = Pick<
-  UserData,
+export type DataResponsable = Pick<
+  DataUsuario,
   | "id"
-  | "firstName"
-  | "lastName"
+  | "nombre"
+  | "apellido"
   | "email"
-  | "phone"
-  | "company"
-  | "country"
-  | "taxId"
+  | "telefono"
+  | "empresa"
+  | "pais"
+  | "idImpuesto"
 >;
 
-export type PurchaseItem = {
-  itemId: string;
-  orderId: string;
-  createdAt: Date;
-  dueDate?: Date;
-  name: string;
+export type ItemOrden = {
+  idItem: string;
+  idOrden: string;
+  fechaCreado: Date;
+  fechaCompromiso?: Date;
+  nombre: string;
   label: string;
   sku: string;
-  quantity: number;
-  price: number;
-  status: Status;
-  files: FileInfo[];
-  [Roles.diseño]?: ResponsibleData;
-  [Roles.corte_1]?: ResponsibleData;
-  [Roles.corte_2]?: ResponsibleData;
-  [Roles.costura]?: ResponsibleData;
+  cantidad: number;
+  precio: number;
+  estatus: EstatusPlanificacion;
+  archivos: InfoArchivo[];
+  [Roles.diseño]?: DataResponsable;
+  [Roles.corte_1]?: DataResponsable;
+  [Roles.corte_2]?: DataResponsable;
+  [Roles.costura]?: DataResponsable;
 };
 
-export type PurchaseOrder = {
-  id: string;
-  createdAt: Date;
-  deleted: boolean;
-  deletedAt?: Date;
-  quote: string;
-  advance?: number;
-  customer: CustomerData;
-  seller: SellerData;
-};
-
-export type CallableResult = {
-  success?: boolean;
-  error?: boolean;
-  data?: any;
-  message: string;
-};
+export type OrdenCompra = {
+  cotizacion: string;
+  adelanto?: number;
+  cliente: DataCliente;
+  vendedor: DataVendedor;
+} & Base;

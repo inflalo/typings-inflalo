@@ -1,18 +1,30 @@
-export enum Systems {
+export enum Sistemas {
   pedidos = "pedidos",
   planificacion = "planificacion",
   web = "web",
 }
 
-export enum Countries {
+export enum Paises {
+  bolivia = "bolivia",
+  chile = "chile",
   china = "china",
+  costa_rica = "costa_rica",
+  ecuador = "ecuador",
+  el_salvador = "el_salvador",
+  españa = "españa",
+  estados_unidos = "estados_unidos",
+  guatemala = "guatemala",
+  honduras = "honduras",
   panama = "panama",
-  usa = "usa",
+  peru = "peru",
+  republica_dominicana = "republica_dominicana",
   venezuela = "venezuela",
 }
 
 export enum Roles {
   admin = "admin",
+  manager = "manager",
+  distribuidor = "distribuidor",
   ventas = "ventas",
   diseño = "diseño",
   impresion = "impresion",
@@ -23,11 +35,11 @@ export enum Roles {
   calidad = "calidad",
   almacen = "almacen",
   logistica = "logistica",
-  distribuidor = "distribuidor",
+  marketing = "marketing",
   cliente = "cliente",
 }
 
-export enum Status {
+export enum EstatusPlanificacion {
   aprobado = "aprobado",
   faltan_editables = "faltan_editables",
   diseñando = "diseñando",
@@ -43,4 +55,10 @@ export enum Status {
   rechazado = "rechazado",
   almacen = "almacen",
   entregado = "entregado",
+}
+
+export enum NivelResultado {
+  success = "success",
+  warning = "warning",
+  error = "error",
 }
