@@ -3,8 +3,10 @@
   "version": "1.2023.321",
   "description": "inflalo shared types and interfaces",
   "main": "index.ts",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc index.ts -d"
   },
   "author": "Victor Noguera",
   "license": "ISC",
