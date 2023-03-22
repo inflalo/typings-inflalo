@@ -1,3 +1,4 @@
+import { Timestamp } from "firebase/firestore";
 import {
   Paises,
   Roles,
@@ -16,9 +17,9 @@ export type Base = {
   id?: string;
   activo?: boolean;
   eliminado?: boolean;
-  fechaCreado: Date;
-  fechaActualizado?: Date;
-  fechaEliminado?: Date;
+  fechaCreado: Timestamp;
+  fechaActualizado?: Timestamp;
+  fechaEliminado?: Timestamp;
 };
 
 export type RolesUsuario = Partial<Record<Roles, boolean>>;
@@ -81,7 +82,7 @@ export type InfoArchivo = {
 export type ItemOrden = {
   idItem: string;
   idOrden: string;
-  fechaCompromiso?: Date;
+  fechaCompromiso?: Timestamp;
   nombre: string;
   label: string;
   sku: string;
