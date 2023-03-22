@@ -26,43 +26,41 @@ export type SistemasUsuario = Partial<Record<Sistemas, boolean>>;
 
 export type Direccion = {
   idUsuario?: string;
-  calle: string;
-  unidad: string;
-  ciudad: string;
+  pais: Paises;
   estado: string;
+  ciudad: string;
+  calle: string;
+  unidad: string; // edificio, apartamento, casa, etc.
   codigoPostal: string;
 } & Base;
 
-export type DataUsuario = {
-  email: string;
+export type Sucursal = {
+  nombre: string;
+  direccion: Partial<Direccion>;
+} & Base;
+
+export type Almacen = {
+  nombre: string;
+  pais: string;
+} & Base;
+
+export type Usuario = {
   nombre: string;
   apellido: string;
-  empresa?: string;
   displayName?: string;
-  telefono?: string;
-  idImpuesto?: string;
   pais: Paises;
-  direccion?: Partial<Direccion>;
+  empresa?: string;
+  nif?: string; // Numero Identificacion Fiscal: Cedula, DNI, RIF, NIT, ITIN, SSN, EIN etc.
+  email: string;
+  telefono?: string;
+  archivos?: string[];
   lider?: boolean;
   roles: RolesUsuario;
   sistemas: SistemasUsuario;
-  archivos?: string[];
 } & Base;
 
-export type DataCliente = Omit<
-  DataUsuario,
-  "displayName" | "lider" | "roles" | "sistemas" | "archivos"
->;
-
-export type DataVendedor = Omit<DataCliente, "taxId">;
-
-export type InfoArchivo = {
-  name: string;
-  contentType: string;
-};
-
-export type DataResponsable = Pick<
-  DataUsuario,
+export type DatosUsuario = Pick<
+  Usuario,
   | "id"
   | "nombre"
   | "apellido"
@@ -70,13 +68,19 @@ export type DataResponsable = Pick<
   | "telefono"
   | "empresa"
   | "pais"
-  | "idImpuesto"
+  | "nif"
 >;
+
+export type DatosResponsable = Omit<DatosUsuario, "empresa" | "nif">;
+
+export type InfoArchivo = {
+  name: string;
+  contentType: string;
+};
 
 export type ItemOrden = {
   idItem: string;
   idOrden: string;
-  fechaCreado: Date;
   fechaCompromiso?: Date;
   nombre: string;
   label: string;
@@ -85,15 +89,15 @@ export type ItemOrden = {
   precio: number;
   estatus: EstatusPlanificacion;
   archivos: InfoArchivo[];
-  [Roles.diseño]?: DataResponsable;
-  [Roles.corte_1]?: DataResponsable;
-  [Roles.corte_2]?: DataResponsable;
-  [Roles.costura]?: DataResponsable;
-};
+  [Roles.diseño]?: DatosResponsable;
+  [Roles.corte_1]?: DatosResponsable;
+  [Roles.corte_2]?: DatosResponsable;
+  [Roles.costura]?: DatosResponsable;
+} & Base;
 
 export type OrdenCompra = {
-  cotizacion: string;
-  adelanto?: number;
-  cliente: DataCliente;
-  vendedor: DataVendedor;
+  presupuesto: string;
+  abono?: number;
+  cliente: DatosUsuario;
+  vendedor: DatosResponsable;
 } & Base;
