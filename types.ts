@@ -32,6 +32,7 @@ export type InfoArchivo = {
 
 export type Direccion = {
   idUsuario?: string;
+  idSucursal?: string;
   pais: Paises;
   estado: string;
   ciudad: string;
@@ -42,7 +43,7 @@ export type Direccion = {
 
 export type Sucursal = {
   nombre: string;
-  direccion: Partial<Direccion>;
+  pais: Paises;
 } & Base;
 
 export type Almacen = {
