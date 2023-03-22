@@ -1,6 +1,6 @@
 {
   "name": "typings-inflalo",
-  "version": "1.2023.321",
+  "version": "1.2023.322",
   "description": "inflalo shared types and interfaces",
   "main": "index.ts",
   "types": "index.d.ts",
