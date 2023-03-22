@@ -58,7 +58,9 @@ export enum EstatusPlanificacion {
 }
 
 export enum NivelResultado {
+  default = "default",
+  error = "error",
+  info = "info",
   success = "success",
   warning = "warning",
-  error = "error",
 }

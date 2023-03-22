@@ -54,7 +54,9 @@ export declare enum EstatusPlanificacion {
     entregado = "entregado"
 }
 export declare enum NivelResultado {
+    default = "default",
+    error = "error",
+    info = "info",
     success = "success",
-    warning = "warning",
-    error = "error"
+    warning = "warning"
 }

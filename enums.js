@@ -62,7 +62,9 @@ var EstatusPlanificacion;
 })(EstatusPlanificacion = exports.EstatusPlanificacion || (exports.EstatusPlanificacion = {}));
 var NivelResultado;
 (function (NivelResultado) {
+    NivelResultado["default"] = "default";
+    NivelResultado["error"] = "error";
+    NivelResultado["info"] = "info";
     NivelResultado["success"] = "success";
     NivelResultado["warning"] = "warning";
-    NivelResultado["error"] = "error";
 })(NivelResultado = exports.NivelResultado || (exports.NivelResultado = {}));

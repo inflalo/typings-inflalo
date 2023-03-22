@@ -14,7 +14,7 @@ export type ResultadoCallable = {
 };
 
 export type Base = {
-  id?: string;
+  id: string;
   activo?: boolean;
   eliminado?: boolean;
   fechaCreado: Timestamp;
