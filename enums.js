@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SubCategorias = exports.Categorias = exports.NivelResultado = exports.EstatusPlanificacion = exports.Roles = exports.Paises = exports.Sistemas = void 0;
+exports.TipoTransaccion = exports.TipoDocumento = exports.PeriodosGarantia = exports.SubCategorias = exports.Categorias = exports.NivelResultado = exports.EstatusPlanificacion = exports.Roles = exports.Paises = exports.Sistemas = void 0;
 var Sistemas;
 (function (Sistemas) {
     Sistemas["control"] = "control";
@@ -114,3 +114,25 @@ var SubCategorias;
     SubCategorias["frozen"] = "frozen";
     SubCategorias["fryers"] = "fryers";
 })(SubCategorias = exports.SubCategorias || (exports.SubCategorias = {}));
+var PeriodosGarantia;
+(function (PeriodosGarantia) {
+    PeriodosGarantia["seis_meses"] = "seis_meses";
+    PeriodosGarantia["un_a\u00F1o"] = "un_a\u00F1o";
+    PeriodosGarantia["dos_a\u00F1os"] = "dos_a\u00F1os";
+})(PeriodosGarantia = exports.PeriodosGarantia || (exports.PeriodosGarantia = {}));
+var TipoDocumento;
+(function (TipoDocumento) {
+    TipoDocumento["cotizacion"] = "cotizacion";
+    TipoDocumento["factura"] = "factura";
+    TipoDocumento["inventario"] = "inventario";
+    TipoDocumento["certificado_garantia"] = "certificado_garantia";
+})(TipoDocumento = exports.TipoDocumento || (exports.TipoDocumento = {}));
+var TipoTransaccion;
+(function (TipoTransaccion) {
+    TipoTransaccion["factura"] = "factura";
+    TipoTransaccion["debito"] = "debito";
+    TipoTransaccion["avance_efectivo"] = "avance_efectivo";
+    TipoTransaccion["pago"] = "pago";
+    TipoTransaccion["credito"] = "credito";
+    TipoTransaccion["reembolso"] = "reembolso";
+})(TipoTransaccion = exports.TipoTransaccion || (exports.TipoTransaccion = {}));

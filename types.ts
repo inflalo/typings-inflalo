@@ -7,6 +7,7 @@ import {
   NivelResultado,
   Categorias,
   SubCategorias,
+  PeriodosGarantia,
 } from "./enums";
 
 export type ResultadoCallable = {
@@ -144,21 +145,21 @@ export type PrecioProducto = {
 };
 
 export type Producto = {
+  nombre: string;
+  modelo: string;
+  slug: string;
+  sku: string;
   categoria: Categorias;
   subCategoria: SubCategorias;
-  costo: number;
-  portada: string;
   descripcion: string;
-  galeria: string[];
   dimensiones: Partial<DimensionesProducto>;
+  costo: number;
   incluyeMotor: boolean;
   motor?: string;
   motores?: string[];
-  nombre: string;
-  modelo: string;
-  sku: string;
-  slug: string;
   garantia: boolean;
-  tipoGarantia?: string;
+  periodoGarantia?: PeriodosGarantia;
   habilitado: PaisProducto;
+  portada?: string;
+  galeria?: string[];
 } & Base;

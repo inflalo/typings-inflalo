@@ -104,3 +104,22 @@ export declare enum SubCategorias {
     frozen = "frozen",
     fryers = "fryers"
 }
+export declare enum PeriodosGarantia {
+    seis_meses = "seis_meses",
+    un_año = "un_a\u00F1o",
+    dos_años = "dos_a\u00F1os"
+}
+export declare enum TipoDocumento {
+    cotizacion = "cotizacion",
+    factura = "factura",
+    inventario = "inventario",
+    certificado_garantia = "certificado_garantia"
+}
+export declare enum TipoTransaccion {
+    factura = "factura",
+    debito = "debito",
+    avance_efectivo = "avance_efectivo",
+    pago = "pago",
+    credito = "credito",
+    reembolso = "reembolso"
+}
