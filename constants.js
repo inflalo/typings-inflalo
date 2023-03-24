@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.sistemasDefaultState = exports.rolesDefaultState = void 0;
+exports.paisProductoDefaultState = exports.sistemasDefaultState = exports.rolesDefaultState = void 0;
 exports.rolesDefaultState = {
     admin: false,
     manager: false,
@@ -23,4 +23,20 @@ exports.sistemasDefaultState = {
     pedidos: false,
     planificacion: false,
     web: true,
+};
+exports.paisProductoDefaultState = {
+    bolivia: false,
+    chile: false,
+    china: false,
+    costa_rica: false,
+    ecuador: false,
+    el_salvador: false,
+    españa: false,
+    estados_unidos: false,
+    guatemala: false,
+    honduras: false,
+    panama: false,
+    peru: false,
+    republica_dominicana: false,
+    venezuela: false,
 };

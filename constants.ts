@@ -1,4 +1,4 @@
-import { RolesUsuario, SistemasUsuario } from "./types";
+import { PaisProducto, RolesUsuario, SistemasUsuario } from "./types";
 
 export const rolesDefaultState: RolesUsuario = {
   admin: false,
@@ -23,4 +23,21 @@ export const sistemasDefaultState: SistemasUsuario = {
   pedidos: false,
   planificacion: false,
   web: true,
+};
+
+export const paisProductoDefaultState: PaisProducto = {
+  bolivia: false,
+  chile: false,
+  china: false,
+  costa_rica: false,
+  ecuador: false,
+  el_salvador: false,
+  españa: false,
+  estados_unidos: false,
+  guatemala: false,
+  honduras: false,
+  panama: false,
+  peru: false,
+  republica_dominicana: false,
+  venezuela: false,
 };
