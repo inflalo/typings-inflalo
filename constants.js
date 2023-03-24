@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.paisProductoDefaultState = exports.sistemasDefaultState = exports.rolesDefaultState = void 0;
+exports.paisProductoDefaultState = exports.sistemasDefaultState = exports.rolesDefaultState = exports.emailValidationPattern = void 0;
+exports.emailValidationPattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 exports.rolesDefaultState = {
     admin: false,
     manager: false,

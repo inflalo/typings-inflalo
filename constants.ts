@@ -1,5 +1,8 @@
 import { PaisProducto, RolesUsuario, SistemasUsuario } from "./types";
 
+export const emailValidationPattern =
+  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 export const rolesDefaultState: RolesUsuario = {
   admin: false,
   manager: false,
