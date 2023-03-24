@@ -1,4 +1,5 @@
 export declare enum Sistemas {
+    inventario = "inventario",
     pedidos = "pedidos",
     planificacion = "planificacion",
     web = "web"
