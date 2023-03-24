@@ -5,6 +5,8 @@ import {
   EstatusPlanificacion,
   Sistemas,
   NivelResultado,
+  Categorias,
+  SubCategorias,
 } from "./enums";
 
 export type ResultadoCallable = {
@@ -33,6 +35,7 @@ export type InfoArchivo = {
 export type Direccion = {
   idUsuario?: string;
   idSucursal?: string;
+  idAlmacen?: string;
   pais: Paises;
   estado: string;
   ciudad: string;
@@ -76,9 +79,19 @@ export type DatosUsuario = Pick<
   | "empresa"
   | "pais"
   | "nif"
+> & { idDireccion?: string };
+
+export type DatosResponsable = Omit<
+  DatosUsuario,
+  "empresa" | "nif" | "idDireccion"
 >;
 
-export type DatosResponsable = Omit<DatosUsuario, "empresa" | "nif">;
+export type DimensionesProducto = {
+  largo: number;
+  ancho: number;
+  alto: number;
+  peso: number;
+};
 
 export type ItemOrden = {
   idItem: string;
@@ -102,4 +115,50 @@ export type OrdenCompra = {
   abono?: number;
   cliente: DatosUsuario;
   vendedor: DatosResponsable;
+} & Base;
+
+export type PaisProducto = Partial<Record<Paises, boolean>>;
+
+export type StockProducto = {
+  id: string;
+  producto: Pick<Producto, "id" | "nombre" | "modelo" | "sku" | "costo">;
+  almacen: Pick<Almacen, "id" | "nombre">;
+  pais: Paises;
+  activo: boolean;
+  disponible: number;
+  reservado?: number;
+  transito?: number;
+  rma?: number;
+};
+
+export type PrecioProducto = {
+  id: string;
+  pais: Paises;
+  producto: Pick<Producto, "id" | "nombre" | "modelo" | "sku" | "costo">;
+  precioLista: number;
+  precioOferta?: number;
+  enOferta?: boolean;
+  precioRetail?: number;
+  precioOfertaRetail?: number;
+  enOfertaRetail?: boolean;
+};
+
+export type Producto = {
+  categoria: Categorias;
+  subCategoria: SubCategorias;
+  costo: number;
+  portada: string;
+  descripcion: string;
+  galeria: string[];
+  dimensiones: Partial<DimensionesProducto>;
+  incluyeMotor: boolean;
+  motor?: string;
+  motores?: string[];
+  nombre: string;
+  modelo: string;
+  sku: string;
+  slug: string;
+  garantia: boolean;
+  tipoGarantia?: string;
+  habilitado: PaisProducto;
 } & Base;
