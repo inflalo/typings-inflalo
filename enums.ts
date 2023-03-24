@@ -1,5 +1,5 @@
 export enum Sistemas {
-  inventario = "inventario",
+  control = "control",
   pedidos = "pedidos",
   planificacion = "planificacion",
   web = "web",

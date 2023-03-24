@@ -19,7 +19,7 @@ export const rolesDefaultState: RolesUsuario = {
 };
 
 export const sistemasDefaultState: SistemasUsuario = {
-  inventario: false,
+  control: false,
   pedidos: false,
   planificacion: false,
   web: true,

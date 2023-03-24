@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.SubCategorias = exports.Categorias = exports.NivelResultado = exports.EstatusPlanificacion = exports.Roles = exports.Paises = exports.Sistemas = void 0;
 var Sistemas;
 (function (Sistemas) {
-    Sistemas["inventario"] = "inventario";
+    Sistemas["control"] = "control";
     Sistemas["pedidos"] = "pedidos";
     Sistemas["planificacion"] = "planificacion";
     Sistemas["web"] = "web";

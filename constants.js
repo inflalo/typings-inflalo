@@ -19,7 +19,7 @@ exports.rolesDefaultState = {
     cliente: false,
 };
 exports.sistemasDefaultState = {
-    inventario: false,
+    control: false,
     pedidos: false,
     planificacion: false,
     web: true,
