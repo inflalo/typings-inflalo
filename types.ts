@@ -154,8 +154,7 @@ export type Producto = {
   descripcion: string;
   dimensiones: Partial<DimensionesProducto>;
   costo: number;
-  incluyeMotor: boolean;
-  motor?: string;
+  motor: boolean;
   motores?: string[];
   garantia: boolean;
   periodoGarantia?: PeriodosGarantia;
