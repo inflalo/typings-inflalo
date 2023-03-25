@@ -150,7 +150,7 @@ export type Producto = {
   slug: string;
   sku: string;
   categoria: Categorias;
-  subCategoria: SubCategorias;
+  subCategoria?: SubCategorias;
   descripcion: string;
   dimensiones: Partial<DimensionesProducto>;
   costo: number;
