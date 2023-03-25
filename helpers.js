@@ -1,7 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.subCategoryFactory = void 0;
+exports.emulateDownload = exports.subCategoryFactory = void 0;
 var enums_1 = require("./enums");
+/**
+ *
+ * @param category category to get the subcategories
+ * @returns subcategories for the given category
+ */
 var subCategoryFactory = function (category) {
     switch (category) {
         case enums_1.Categorias.diversion: {
@@ -66,3 +71,23 @@ var subCategoryFactory = function (category) {
     }
 };
 exports.subCategoryFactory = subCategoryFactory;
+/**
+ *
+ * @param downloadUrl URL to download the file
+ * @param filename Name of the file
+ */
+var emulateDownload = function (downloadUrl, filename) {
+    var xhr = new XMLHttpRequest();
+    xhr.responseType = "blob";
+    xhr.onload = function () {
+        var a = document.createElement("a");
+        a.href = window.URL.createObjectURL(xhr.response);
+        a.download = filename;
+        a.style.display = "none";
+        document.body.appendChild(a);
+        a.click();
+    };
+    xhr.open("GET", downloadUrl);
+    xhr.send();
+};
+exports.emulateDownload = emulateDownload;
