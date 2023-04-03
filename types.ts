@@ -123,7 +123,7 @@ export type PaisProducto = Partial<Record<Paises, boolean>>;
 export type StockProducto = {
   id?: string;
   idProducto: string;
-  idAlmacen: string;
+  idAlmacen?: string;
   pais: Paises;
   activo: boolean;
   disponible: number;
