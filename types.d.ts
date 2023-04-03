@@ -87,8 +87,8 @@ export type OrdenCompra = {
 export type PaisProducto = Partial<Record<Paises, boolean>>;
 export type StockProducto = {
     id: string;
-    producto: Pick<Producto, "id" | "nombre" | "modelo" | "sku" | "costo">;
-    almacen: Pick<Almacen, "id" | "nombre">;
+    idProducto: string;
+    idAlmacen: string;
     pais: Paises;
     activo: boolean;
     disponible: number;
@@ -98,8 +98,8 @@ export type StockProducto = {
 };
 export type PrecioProducto = {
     id: string;
+    idProducto: string;
     pais: Paises;
-    producto: Pick<Producto, "id" | "nombre" | "modelo" | "sku" | "costo">;
     precioLista: number;
     precioOferta?: number;
     enOferta?: boolean;
